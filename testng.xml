@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<listeners>
+<listener class-name="testlisteners01.ExtentITestNGListeners"></listener>
+</listeners>
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="BlazeD03.TestClass.Tc1_HomePageTest"/>
+      <class name="BlazeD03.TestClass.Tc2_ReservePageTest"/>
+      <class name="BlazeD03.TestClass.Tc3_PurchasePageTest"/>
+      <class name="BlazeD03.TestClass.Tc4_ConfirmationPageTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
