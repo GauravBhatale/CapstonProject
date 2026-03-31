@@ -16,21 +16,20 @@ public class Tc3_PurchasePageTest extends BaseClass {
 		rp.chooseFlight("United Airlines");
 	}
 
-	
 	@Test(priority = 3)
 	public void FirstName() {
 		pp.inputName("Gaurav");
-	    pp.adress("Gargoti");
-	    pp.city("Kolhapur");
-	    pp.State("Kolhapur");
-	    pp.zipCode("221113");
-	    pp.Selectcardtype("Visa");
-	    pp.cardNmuber("111213");
-	    pp.creditCardMonth("5");
-	    pp.creditCardYear("2019");
-	    pp.nameOnCard("gaurav");
-	    pp.rememberMe();
-	    pp.submitButton();
-	    
+		pp.adress("Gargoti");
+		pp.city("Kolhapur");
+		pp.State("Kolhapur");
+		pp.zipCode("221113");
+		pp.Selectcardtype("Visa");
+		pp.cardNmuber("111213");
+		pp.creditCardMonth("5");
+		pp.creditCardYear("2019");
+		pp.nameOnCard("gaurav");
+		pp.rememberMe();
+		pp.submitButton();
+
 	}
 }

@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import BlazeD04.Utility.LiveUtility;
+
 public class P03_PurchasePage {
 
 	private WebDriver driver;
@@ -52,8 +54,8 @@ public class P03_PurchasePage {
 
 	@FindBy(name = "rememberMe")
 	WebElement checkBox;
-	
-	@FindBy(xpath="//input[@type='submit']")
+
+	@FindBy(xpath = "//input[@type='submit']")
 	WebElement submitButton;
 
 	// methods
@@ -105,14 +107,18 @@ public class P03_PurchasePage {
 		creditCardYear.sendKeys(year);
 	}
 
-	public void nameOnCard(String name ) {
+	public void nameOnCard(String name) {
 		nameOnCard.sendKeys(name);
 	}
+
 	public void rememberMe() {
 		checkBox.click();
+		LiveUtility.getScreenshot(driver);
 	}
+
 	public void submitButton() {
 		submitButton.click();
+
 	}
 
 }

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import BlazeD03.TestClass.Tc2_ReservePageTest;
+import BlazeD04.Utility.LiveUtility;
 
 import java.util.List;
 
@@ -18,59 +19,58 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class P01_HomePage
-{
+public class P01_HomePage {
 	private WebDriver driver;
-	public P01_HomePage(WebDriver driver)//driver from base class
+
+	public P01_HomePage(WebDriver driver)// driver from base class
 	{
-		this.driver=driver;
-		PageFactory.initElements(driver,this);
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
-	//locators
-	@FindBy(name="fromPort")
+
+	// locators
+	@FindBy(name = "fromPort")
 	private WebElement fromportddEle;
-	
-	@FindBy(name="toPort")
+
+	@FindBy(name = "toPort")
 	private WebElement toportddEle;
-	
-	@FindBy(xpath="//input[@type='submit']")
+
+	@FindBy(xpath = "//input[@type='submit']")
 	WebElement findFlightButton;
 
-	//methods
-	public String getAppUrl()
-	{
+	// methods
+	public String getAppUrl() {
 		return driver.getCurrentUrl();
 	}
-	public String getAppTitle()
-	{
+
+	public String getAppTitle() {
 		return driver.getTitle();
 	}
-	public void selectFromPort(String city)
-	{
-		Select sc=new Select(fromportddEle);
+
+	public void selectFromPort(String city) {
+		Select sc = new Select(fromportddEle);
 		sc.selectByVisibleText(city);
 	}
-	public void selectToPort(String city)
-	{
-		Select sc=new Select(toportddEle);
-		List<WebElement> allOptions=sc.getOptions();
-		System.out.println("Total Options are: "+allOptions.size());
-		for(WebElement i:allOptions)
-		{
+
+	public void selectToPort(String city) {
+		Select sc = new Select(toportddEle);
+		List<WebElement> allOptions = sc.getOptions();
+		System.out.println("Total Options are: " + allOptions.size());
+		for (WebElement i : allOptions) {
 			System.out.println(i.getText());
-			
-			if(i.getText().contains(city))
-			{
-				//select
+
+			if (i.getText().contains(city)) {
+				// select
 				i.click();
 				break;
 			}
-		}	
+		}
 	}
-	public P02_ReservePage clickOnFindFlightButton()
-	{
+
+	public P02_ReservePage clickOnFindFlightButton() {
+		LiveUtility.getScreenshot(driver);
 		findFlightButton.click();
-		//for next page navigation  : return next page object
+		// for next page navigation : return next page object
 		return new P02_ReservePage(driver);
 	}
 

@@ -12,35 +12,31 @@ import BlazeD02.page.P02_ReservePage;
 import BlazeD02.page.P03_PurchasePage;
 import BlazeD02.page.P04_ConfirmationPage;
 
-public class BaseClass 
-{
+public class BaseClass {
 
- //project configuration class
-	
+	// project configuration class
+
 	public WebDriver driver;
 	public P01_HomePage hp;
 	public P02_ReservePage rp;
 	public P03_PurchasePage pp;
 	public P04_ConfirmationPage cp;
-	
+
 	@BeforeClass
-    public void SetUp() 
-	{
-	   driver = new EdgeDriver();
-	   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	   driver.get("https://blazedemo.com/");
-	  
-	   hp=new P01_HomePage(driver);
-	   rp=new P02_ReservePage(driver);
-	   pp=new P03_PurchasePage(driver);
-	   cp=new P04_ConfirmationPage(driver);
+	public void SetUp() {
+		driver = new EdgeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://blazedemo.com/");
+
+		hp = new P01_HomePage(driver);
+		rp = new P02_ReservePage(driver);
+		pp = new P03_PurchasePage(driver);
+		cp = new P04_ConfirmationPage(driver);
 	}
-	
 
 	@AfterClass
-	public void tearDown()
-	{
-		//close
+	public void tearDown() {
+		// close
 		driver.quit();
 	}
 }
